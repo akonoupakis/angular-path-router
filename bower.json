@@ -1,0 +1,19 @@
+{
+  "name": "angular-path-router",
+  "main": "ng-path-router.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/akonoupakis/angular-path-router",
+  "authors": [
+    "Apostolis Konoupakis <konoupakis@gmail.com>"
+  ],
+  "description": "A url unaware router for angular",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
