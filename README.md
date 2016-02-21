@@ -54,13 +54,19 @@ angular-path-router draws the controllers and changes the url afterwards, rather
                 });
             
         })
-        .controller('BaseController', function($scope, $router, $location) { //=> our base controller for our one page app 
+        .controller('BaseController', function($scope, $rootScope, $router, $location) { //=> our base controller for our one page app 
              
-             // create a routeId so that we know which of all routers is the one for this controller
+             //=> create a routeId so that we know which of all routers is the one for this controller
              $scope.routeId = 'route-main';
              $scope.route = $router.create($scope.routeId, {
                 path: $location.path(),
                 redirect: true
+             });
+             
+             //=> obseve from user changes on the url
+             $rootScope.$on('$locationChangeStart', function (event, next) {
+                if ($location.path() !== $scope.route.current.path) 
+                    $scope.route.navigate($location.path());
              });
              
              $scope.$on('$destroy', function () {
@@ -70,7 +76,7 @@ angular-path-router draws the controllers and changes the url afterwards, rather
          });
         .controller('PopupController', function($scope, $router, $location) { //=> our base controller for our one page app 
              
-             // create a routeId for this controller. Since there might be multiple popups, we need to create a unique id
+             //=> create a routeId for this controller. Since there might be multiple popups, we need to create a unique id
              $router.$index = $router.$index || 0;
              $router.$index++;
 
