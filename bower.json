@@ -1,7 +1,7 @@
 {
 	"name": "angular-path-router",
 	"main": "ng-path-router.js",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"homepage": "https://github.com/akonoupakis/angular-path-router",
 	"authors": [
 		"Apostolis Konoupakis <konoupakis@gmail.com>"
