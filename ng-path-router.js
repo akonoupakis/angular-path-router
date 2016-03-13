@@ -330,7 +330,7 @@
                         }
                         if (currentElement) {
                             if (scopeRoute.direction === 'ltr')
-                                $animate.addClass(currentElement, 'animate-next');
+                                $animate.addClass(currentElement, 'animate-next')
                             else if (scopeRoute.direction === 'rtl')
                                 $animate.addClass(currentElement, 'animate-prev');
 
@@ -352,13 +352,12 @@
                         if (templateUrl) {
                             var newScope = scope.$new();
 
-                            var clone = $transclude(newScope, function (clone) {
-
-                                if (scopeRoute.direction === 'ltr')
-                                    $animate.addClass(clone, 'animate-next');
+                            $transclude(newScope, function (clone) {
+                                if (scopeRoute.direction === 'ltr') 
+                                    $animate.addClass(clone, 'animate-next')
                                 else if (scopeRoute.direction === 'rtl')
                                     $animate.addClass(clone, 'animate-prev');
-
+                                
                                 $animate.enter(clone, null, currentElement || $element).then(function onNgViewEnter() {
                                     if (scopeRoute.direction === 'ltr')
                                         $animate.removeClass(clone, 'animate-next');
@@ -367,9 +366,10 @@
                                 });
 
                                 cleanupLastView();
+
+                                currentElement = clone;
                             });
 
-                            currentElement = clone;
                             currentScope = newScope;
                         } else {
                             cleanupLastView();
